@@ -1,95 +1,246 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Prof. Sujata Pal</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prof. Sujata Pal — Home</title>
+  <meta name="description" content="Prof. Sujata Pal — Researcher in Distributed Systems, Blockchain, and Security" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
   <style>
-    :root {
-      --primary:#2c3e50; --accent:#2980b9; --light:#f5f5f5; --dark:#333;
+    /* ===== Basic reset & variables ===== */
+    :root{
+      --bg:#f7f8fb; --card:#ffffff; --muted:#666; --accent:#0b6edf; --dark:#1f2937; --gap:1.25rem;
+      --max-width:1100px; --radius:12px; --shadow:0 6px 18px rgba(31,41,55,0.08);
     }
-    * {box-sizing:border-box; margin:0; padding:0;}
-    body {font-family: Georgia, serif; line-height:1.6; color:var(--dark); display:flex; min-height:100vh;}
-    nav {background:var(--primary); color:white; padding:2rem 1rem; width:260px; flex-shrink:0; display:flex; flex-direction:column; align-items:center;}
-    nav img {width:140px; border-radius:50%; margin-bottom:1rem; border:3px solid white;}
-    nav h1 {font-size:1.5rem; margin-bottom:.5rem;}
-    nav p {font-size:.95rem; margin-bottom:1rem; text-align:center;}
-    nav a {color:white; text-decoration:none; display:block; margin:.5rem 0; padding:.3rem .8rem; border-radius:8px;}
-    nav a:hover {background:var(--accent);}
-    main {flex:1; padding:2rem; background:var(--light); overflow:auto;}
-    section {margin-bottom:2.5rem;}
-    h2 {margin-bottom:.5rem; color:var(--primary);}
-    ul {list-style:square inside; margin-left:1rem;}
-    footer {margin-top:2rem; font-size:.9rem; color:#666;}
-    @media(max-width:800px){
-      body{flex-direction:column;}
-      nav{width:100%; flex-direction:row; justify-content:center; flex-wrap:wrap;}
-      nav img{width:80px; margin-bottom:0; margin-right:1rem;}
-      nav h1, nav p{display:none;}
-      nav a{margin:.3rem;}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:var(--dark); background:var(--bg); line-height:1.5}
+    a{color:var(--accent); text-decoration:none}
+    h1,h2,h3{margin:0 0 .5rem}
+
+    /* ===== Layout ===== */
+    .site{display:flex; gap:var(--gap); max-width:calc(var(--max-width) + 320px); margin:2rem auto; padding:1rem}
+    aside{width:300px; flex-shrink:0}
+    main{flex:1}
+
+    /* ===== Sidebar ===== */
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.25rem}
+    .profile-photo{width:100%; border-radius:10px; object-fit:cover}
+    .name{font-size:1.25rem; margin-top:.75rem}
+    .role{color:var(--muted); font-size:.95rem}
+    .meta{margin-top:.75rem; font-size:.9rem; color:var(--muted)}
+    nav.side-nav{margin-top:1rem}
+    nav.side-nav a{display:block; padding:.5rem .6rem; border-radius:8px; color:var(--dark)}
+    nav.side-nav a:hover{background:#f0f6ff; color:var(--accent)}
+
+    /* ===== Hero & sections ===== */
+    .hero{display:flex; gap:1.25rem; align-items:center}
+    .hero .bio{flex:1}
+    .badge{display:inline-block; padding:.2rem .5rem; border-radius:999px; background:#e8f0ff; color:var(--accent); font-weight:600; font-size:.85rem}
+    section{margin-top:1.25rem}
+
+    /* ===== Publications list ===== */
+    .pub{padding:.65rem; border-radius:8px; background:linear-gradient(180deg, rgba(11,110,223,0.03), rgba(255,255,255,0)); margin:.5rem 0}
+    .pub .meta{color:var(--muted); font-size:.9rem}
+
+    /* ===== Teaching ===== */
+    .course{display:flex; justify-content:space-between; gap:1rem; padding:.6rem; border-radius:8px; background:#fff; margin:.5rem 0}
+    .course .code{font-weight:600}
+    .course .term{color:var(--muted)}
+
+    /* ===== Contact & footer ===== */
+    .contact-list a{display:inline-block; margin-right:.6rem}
+    footer{margin-top:1.5rem; color:var(--muted); font-size:.9rem}
+
+    /* ===== Utilities ===== */
+    .row{display:flex; gap:1rem}
+    .stack{display:flex; flex-direction:column; gap:.5rem}
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
+
+    /* ===== Responsive ===== */
+    @media (max-width:980px){
+      .site{flex-direction:column; padding:1rem}
+      aside{width:100%}
+      .grid-2{grid-template-columns:1fr}
     }
+
+    /* ===== Small print ===== */
+    .muted{color:var(--muted); font-size:.9rem}
+    .btn{display:inline-block; background:var(--accent); color:white; padding:.45rem .75rem; border-radius:8px}
   </style>
 </head>
 <body>
-  <nav>
-    <img src="https://via.placeholder.com/200" alt="Profile photo"/>
-    <h1>Prof. Sujata Pal</h1>
-    <p>Department of Computer Science<br/>Your University</p>
-    <a href="#home">Home</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#teaching">Teaching</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <main>
-    <section id="home">
-      <h2>Welcome</h2>
-      <p>Hello! I am <strong>Prof. Sujata Pal</strong> at <em>Your University</em>. 
-         My research interests include distributed systems, blockchain, 
-         and cybersecurity. I am passionate about teaching and guiding 
-         students in advanced computer science topics.</p>
-    </section>
+  <div class="site">
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="card">
+        <img class="profile-photo" src="https://via.placeholder.com/600x600.png?text=Prof+Sujata+Pal" alt="Prof. Sujata Pal"/>
+        <div class="name">Prof. Sujata Pal</div>
+        <div class="role">Professor, Department of Computer Science — Your University</div>
+        <div class="meta">Email: <a href="mailto:sujata@university.edu">sujata@university.edu</a><br/>Office: Building X, Room 123</div>
 
-    <section id="research">
-      <h2>Research</h2>
-      <p>My group focuses on problems at the intersection of systems and security. 
-         Current projects include:</p>
-      <ul>
-        <li>Atomic broadcast in distributed systems</li>
-        <li>Applications of blockchain in digital evidence</li>
-        <li>Zero-knowledge proofs for privacy-preserving protocols</li>
-      </ul>
-    </section>
+        <nav class="side-nav" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#students">Students</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-    <section id="publications">
-      <h2>Selected Publications</h2>
-      <ul>
-        <li><strong>Paper A</strong>, Journal of Distributed Systems, 2024. <a href="#">[PDF]</a></li>
-        <li><strong>Paper B</strong>, IEEE Security & Privacy, 2023. <a href="#">[DOI]</a></li>
-        <li><strong>Paper C</strong>, ACM Conference on Blockchain, 2022. <a href="#">[Link]</a></li>
-      </ul>
-    </section>
+        <div style="margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap">
+          <a class="btn" href="/CV_Sujata_Pal.pdf" target="_blank">Download CV</a>
+          <a class="muted" href="https://github.com/SujataPal" target="_blank">GitHub</a>
+          <a class="muted" href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        </div>
+      </div>
 
-    <section id="teaching">
-      <h2>Teaching</h2>
-      <ul>
-        <li>CS501: Distributed Systems (Fall 2025)</li>
-        <li>CS405: Blockchain Technologies (Spring 2025)</li>
-        <li>CS302: Operating Systems (Fall 2024)</li>
-      </ul>
-    </section>
+      <div style="height:1rem"></div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:you@university.edu">you@university.edu</a><br/>
-         GitHub: <a href="https://github.com/SujataPal">SujataPal</a><br/>
-         LinkedIn: <a href="https://linkedin.com/in/yourprofile">yourprofile</a></p>
-    </section>
+      <div class="card">
+        <h3>Quick facts</h3>
+        <div class="stack" style="margin-top:.5rem">
+          <div><strong>Research areas:</strong> Distributed Systems, Blockchain, Security</div>
+          <div><strong>Office hours:</strong> Tue 3–5pm (or by appointment)</div>
+          <div><strong>ORCID:</strong> 0000-0000-0000-0000</div>
+        </div>
+      </div>
+    </aside>
 
-    <footer>
-      &copy; <span id="year"></span> Prof. Sujata Pal — All Rights Reserved.
-    </footer>
-  </main>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+    <!-- MAIN -->
+    <main>
+      <section id="home" class="card">
+        <div class="hero">
+          <div class="bio">
+            <div class="badge">Professor of Computer Science</div>
+            <h1 style="margin-top:.5rem">Prof. Sujata Pal</h1>
+            <p class="muted">I lead the Distributed Systems & Security Lab at Your University. My work focuses on fault-tolerant systems, privacy-preserving protocols, and blockchain applications for secure evidence management.</p>
+            <p style="margin-top:.75rem"><a class="btn" href="#research">View research</a> <a style="margin-left:.5rem" href="#contact">Contact</a></p>
+          </div>
+          <div style="width:220px; text-align:right; color:var(--muted)">
+            <div><strong>Current students</strong></div>
+            <div style="margin-top:.5rem">PhD: 6 &nbsp; MSc: 8</div>
+            <div style="margin-top:1rem"><strong>Selected awards</strong>
+              <ul style="margin-top:.5rem; padding-left:1rem; color:var(--muted)">
+                <li>Outstanding Research Award, 2023</li>
+                <li>ACM India – OCCW 2024</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="card">
+        <h2>Research</h2>
+        <p class="muted">Overview — I investigate building practical, secure distributed systems. Current thrusts:</p>
+        <div class="grid-2" style="margin-top:1rem">
+          <div>
+            <h3>Fault-tolerant Systems</h3>
+            <p class="muted">Designing atomic broadcast primitives and replication techniques that scale in adversarial conditions.</p>
+          </div>
+          <div>
+            <h3>Blockchain & Privacy</h3>
+            <p class="muted">Applying blockchain for tamper-evident digital evidence and exploring zero-knowledge proofs for privacy-preserving verification.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications" class="card">
+        <h2>Selected Publications</h2>
+        <p class="muted">(For a complete list, download the CV or view the publications page)</p>
+
+        <div style="margin-top:1rem">
+          <article class="pub">
+            <div style="display:flex; justify-content:space-between; gap:1rem">
+              <div>
+                <div><strong>Reliable Atomic Broadcast in Adversarial Networks</strong></div>
+                <div class="meta">Journal of Distributed Systems — 2024</div>
+                <div class="muted" style="margin-top:.4rem">Abstract: We present a new atomic broadcast algorithm that tolerates Byzantine failures and recovers with minimal overhead.</div>
+              </div>
+              <div style="text-align:right; min-width:120px">
+                <a href="#">PDF</a> &nbsp; <a href="#">DOI</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div style="display:flex; justify-content:space-between; gap:1rem">
+              <div>
+                <div><strong>Blockchain-based Secure Evidence Management</strong></div>
+                <div class="meta">IEEE S&P — 2023</div>
+                <div class="muted" style="margin-top:.4rem">Abstract: A system design for storing tamper-evident digital evidence with access controls and auditability.</div>
+              </div>
+              <div style="text-align:right; min-width:120px">
+                <a href="#">PDF</a> &nbsp; <a href="#">Link</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub">
+              <div><strong>Privacy-preserving Verification with ZK Proofs</strong></div>
+              <div class="meta">ACM Conference on Blockchain — 2022</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="teaching" class="card">
+        <h2>Teaching</h2>
+        <p class="muted">Courses taught recently:</p>
+        <div style="margin-top:1rem">
+          <div class="course"><div class="code">CS501</div><div><div><strong>Distributed Systems</strong></div><div class="term muted">Fall 2025</div></div></div>
+          <div class="course"><div class="code">CS405</div><div><div><strong>Blockchain Technologies</strong></div><div class="term muted">Spring 2025</div></div></div>
+          <div class="course"><div class="code">CS302</div><div><div><strong>Operating Systems</strong></div><div class="term muted">Fall 2024</div></div></div>
+        </div>
+      </section>
+
+      <section id="students" class="card">
+        <h2>Students & Alumni</h2>
+        <div class="grid-2" style="margin-top:1rem">
+          <div>
+            <h3>Current PhD Students</h3>
+            <ul>
+              <li>Alex Kumar — thesis: Scalable Consensus</li>
+              <li>Rina Das — thesis: ZK Protocols</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Alumni</h3>
+            <ul>
+              <li>Dr. Priya Sen — Senior Researcher, XYZ Labs</li>
+              <li>Arjun Mehta — Assistant Professor, ABC Univ.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <p class="muted">Email is the preferred contact method for students and collaborators.</p>
+        <div class="contact-list" style="margin-top:1rem">
+          <div>Email: <a href="mailto:sujata@university.edu">sujata@university.edu</a></div>
+          <div>Office: Building X, Room 123</div>
+          <div>Phone: +91-XXXXXXXXXX</div>
+        </div>
+      </section>
+
+      <footer style="text-align:center; margin-top:1rem">&copy; <span id="yr"></span> Prof. Sujata Pal — <span class="muted">All rights reserved</span></footer>
+    </main>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
 </body>
 </html>
+
