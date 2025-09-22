@@ -38,6 +38,7 @@
     .hero .bio{flex:1}
     .badge{display:inline-block; padding:.2rem .5rem; border-radius:999px; background:#e8f0ff; color:var(--accent); font-weight:600; font-size:.85rem}
     section{margin-top:1.25rem}
+    section .section-content { max-width: 900px; margin:auto; padding: 0 20px; }
 
     /* ===== Publications list ===== */
     .pub{padding:.65rem; border-radius:8px; background:linear-gradient(180deg, rgba(11,110,223,0.03), rgba(255,255,255,0)); margin:.5rem 0}
@@ -67,6 +68,66 @@
     /* ===== Small print ===== */
     .muted{color:var(--muted); font-size:.9rem}
     .btn{display:inline-block; background:var(--accent); color:white; padding:.45rem .75rem; border-radius:8px}
+
+    /* ===== Vertical news ticker ===== */
+    .news-vertical {
+      height: 2.5em;
+      overflow: hidden;
+      position: relative;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .news-vertical ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      animation: scrollUp 12s linear infinite;
+    }
+    .news-vertical li {
+      height: 2.5em;
+      line-height: 2.5em;
+      font-weight: 500;
+      color: #2c3e50;
+    }
+  /* Smooth continuous scroll */
+@keyframes scrollUp {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }  /* scroll half of total UL height (since items duplicated) */
+}
+
+/* Pause on hover */
+.news-vertical:hover ul {
+  animation-play-state: paused;
+}  
+  #publications h3 {
+  margin-top: 20px;
+  color: #2c3e50;
+  font-size: 1.2em;
+  border-left: 4px solid #3498db;
+  padding-left: 8px;
+}
+
+.pub-list {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.pub-list li .mute {
+  color: #6c757d;   /* muted gray */
+  font-style: italic;
+  font-size: 0.95em;
+}
+.pub-list li a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+.pub-list li a:hover {
+  color: #007acc;
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -76,8 +137,8 @@
       <div class="card">
         <img class="profile-photo" src="sujata_Pal.jpeg" alt="Dr. Sujata Pal"/>
         <div class="name">Dr. Sujata Pal</div>
-        <div class="role">Associate Professor, Department of Computer Science — Indian Institute of Technology Ropar</div>
-        <div class="meta">Email: <a href="mailto:sujata@university.edu">sujata@iitrpr.ac.in</a><br/>Office: 116, Ramanujam Building, Computer Science & Engineering Department, IIT Ropar</div>
+        <div class="role">Associate Professor, Department of Computer Science — IIT Ropar</div>
+        <div class="meta">Email: <a href="mailto:sujata@iitrpr.ac.in">sujata@iitrpr.ac.in</a><br/>Office: 116, Ramanujam Building</div>
 
         <nav class="side-nav" aria-label="Main navigation">
           <a href="#home">Home</a>
@@ -100,7 +161,7 @@
       <div class="card">
         <h3>Quick facts</h3>
         <div class="stack" style="margin-top:.5rem">
-          <div><strong>Research areas:</strong> Wireless Networks, Blockchain, Security, IoT, Ad hoc Networks, WBAN, SDN</div>
+          <div><strong>Research areas:</strong> Wireless Networks, AI/ML for Systems, Blockchain, Security, IoT, Ad hoc Networks, WBAN, SDN</div>
           <div><strong>Office hours:</strong> Mon 3–5pm (or by appointment)</div>
           <div><strong>ORCID:</strong> 0000-0001-6652-9669</div>
         </div>
@@ -112,18 +173,18 @@
       <section id="home" class="card">
         <div class="hero">
           <div class="bio">
-            <!-- div class="badge">Professor of Computer Science</div -->
             <h1 style="margin-top:.5rem">Dr. Sujata Pal</h1>
-            <p class="muted">I lead the WANet (Wireless ad hoc Networks) Lab at Indian Institute of Technology Ropar. My work focuses on Internet of Things, wireless body area networks, software defined networks, mobile ad-hoc networks, fault-tolerant systems, privacy-preserving protocols, and blockchain applications for secure evidence management.</p>
+            <!--p class="muted"-->
+            <p>I lead the WANet (Wireless ad hoc Networks) Lab at IIT Ropar. My work focuses on Internet of Things, AI/ML for Systems, wireless body area networks, software defined networks, mobile ad-hoc networks, fault-tolerant systems, privacy-preserving protocols, and blockchain applications for secure evidence management.</p>
             <p style="margin-top:.75rem"><a class="btn" href="#research">View research</a> <a style="margin-left:.5rem" href="#contact">Contact</a></p>
           </div>
           <div style="width:220px; text-align:right; color:var(--muted)">
             <div><strong>Current students</strong></div>
             <div style="margin-top:.5rem">PhD: 8 &nbsp; BTP: 4</div>
-            <div style="margin-top:1rem"><strong>Selected awards</strong>
+            <div style="margin-top:1rem"><strong>Selected achievements</strong>
               <ul style="margin-top:.5rem; padding-left:1rem; color:var(--muted)">
-                <li>TCS Scholarship for 4 years (2012-2015)</li>
-                <li>Schlumberger Faculty for the Future Award (2015-2017)</li>
+                <li>TCS Scholarship for 4 years</li>
+                <li>Schlumberger FFTF Award</li>
                 <li>Senior member, IEEE & ACM</li>
               </ul>
             </div>
@@ -131,98 +192,228 @@
         </div>
       </section>
 
+      <!-- Vertical News Section -->
+      <section id="news" class="card">
+        <div class="section-content">
+          <h2>Recent News</h2>
+          <div class="news-vertical">
+            <ul>
+              <li>🏆 Kumari Hemlata received IndiaAI Research Fellowship 2025.</li>
+              <li>📢 Paper accepted in 21st International Conference on WiMob, 2025.</li>
+              <li>📕️ AICTE Technical 3rd year Book on "Internet of Things", 2025.</li>
+              <li>📝 Congratulations Shruti for your accepted paper in IEEE TNSM. </li>
+              <li>🎓 Congratulations Priyanka and Vivek for your new jobs at IIIT Bhopal and NIT Kurukshetra.</li-->
+              <!-- Duplicate items for smooth continuous scroll -->
+              <!--li>🎓 Congratulations Dr. Vivek! Vivek joined NIT Kurukshetra as an Assistant Professor in CSE department.</li-->
+              <li>🏆 Kumari Hemlata received IndiaAI Research Fellowship 2025.</li>
+              <li>📢 Paper accepted in 21st International Conference on WiMob, 2025.</li>
+              <li>📕️ AICTE Technical 3rd year Book on "Internet of Things", 2025.</li>
+              <li>📝 Congratulations Shruti for your accepted paper in IEEE TNSM. </li>
+              <li>🎓 Congratulations Priyanka and Vivek for your new jobs at IIIT Bhopal and NIT Kurukshetra.</li-->
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section id="research" class="card">
-        <h2>Research</h2>
-        <p class="muted">Overview — I investigate building practical, secure distributed systems. Current thrusts:</p>
-        <div class="grid-2" style="margin-top:1rem">
-          <div>
-            <h3>Fault-tolerant Systems</h3>
-            <p class="muted">Designing atomic broadcast primitives and replication techniques that scale in adversarial conditions.</p>
-          </div>
-          <div>
-            <h3>Blockchain & Privacy</h3>
-            <p class="muted">Applying blockchain for tamper-evident digital evidence and exploring zero-knowledge proofs for privacy-preserving verification.</p>
-          </div>
+        <div class="section-content">
+          <h2>Research</h2>
+          <!--p class="muted"--> <p style="text-align: justify;">My research focuses on building <strong>secure, efficient, and fault-tolerant communication systems</strong> across emerging network technologies. I work on the Internet of Things, wireless body area networks, AI/ML for Systems, software-defined and mobile ad-hoc networks, and develop <strong>privacy-preserving protocols</strong> 
+          and <strong>blockchain-based applications</strong> for tamper-proof digital evidence management.</p>
+          <div class="grid-2" style="margin-top:1rem">
+            <div>
+              <h3>Wireless Body Area Networks (WBANs)</h3>
+              <p class="muted"style="text-align: justify;">Wireless Body Area Networks are specialized sensor networks designed for continuous health monitoring through wearable or implantable devices. My research targets the design of lightweight and secure communication protocols that ensure medical data is transmitted efficiently without compromising patient privacy or system reliability. The ultimate goal is to support next-generation healthcare applications by enabling safe, real-time monitoring of physiological signals in resource-limited environments.</p></p>
+            </div>
+            <div>
+              <h3>Internet of Things (IoT)</h3>
+              <p class="muted"style="text-align: justify;">The Internet of Things connects everyday objects—sensors, devices, and systems—into a unified digital ecosystem. My research in IoT focuses on developing secure and lightweight frameworks that enable reliable communication between resource-constrained devices while protecting sensitive data. By addressing challenges such as scalability, interoperability, and privacy, my work aims to build IoT solutions that are both efficient and trustworthy for applications ranging from smart cities to industrial automation..</p>
+            </div>
+
+            <div>
+              <h3>Blockchain Applications</h3>
+              <p class="muted"style="text-align: justify;">Leveraging blockchain technology for tamper-proof and auditable evidence management, enhancing trust, transparency, and accountability in sensitive digital ecosystems.</p>
+            </div>
+ 	<div>           
+    	<h3>Ad-hoc Networks</h3>
+              <p class="muted"style="text-align: justify;">Designing adaptive and programmable network architectures that support scalability, efficient routing, and fault tolerance in dynamic settings.</p> 
+            </div>
+            <div>
+  	<h3>AI/ML for Systems</h3>
+  	<p class="muted"style="text-align: justify;">
+    	Research focuses on applying <strong>artificial intelligence and machine learning</strong> to optimize and enhance computer systems. This includes designing intelligent 	algorithms for <strong>resource management, fault detection, network optimization, and predictive maintenance</strong> in distributed and cloud environments. By combining learning-driven methods with traditional system design, the approach improves <strong>efficiency, reliability, and scalability</strong> while reducing operational overhead. Applications span <strong>IoT, wireless networks, blockchain infrastructures, and mobile systems</strong>, enabling <strong>adaptive, real-time decision-making</strong> in dynamic environments.
+  	</p>
+  	</div>
+  	<div>
+  <h3>Environmental Pollution</h3>
+  <p class="muted">
+    Research focuses on developing <strong>sensor-based monitoring and data-driven solutions</strong> for detecting and mitigating environmental pollution. This includes designing <strong>IoT-enabled air and water quality monitoring systems</strong>, applying <strong>machine learning for pollutant prediction</strong>, and exploring <strong>smart strategies for sustainable urban and industrial environments</strong>. The work aims to enable <strong>real-time monitoring, early warning, and data-informed decision-making</strong> for environmental protection.
+  </p>
+</div>
+
         </div>
       </section>
+<section id="publications" class="card">
+  <div class="section-content">
+    <h2>Publications</h2>
 
-      <section id="publications" class="card">
-        <h2>Selected Publications</h2>
-        <p class="muted">(For a complete list, download the CV or view the publications page)</p>
+    <!-- Journal Publications -->
+    <h2>Selected Publications</h2>
+    <h3>Journal Publications</h3>
+    <ul class="pub-list">
+      <li>
+        <strong><a href="https://ieeexplore.ieee.org/document/10807187" target="_blank">HeRo: Heuristic-Based Routing in Payment Channel Networks</a></strong> <br>
+        S. Mishra, V. Aggarwal, <strong><span style="color: blue;">S. Pal</span></strong>, and V. Agarwal, <em>IEEE Networking Letters</em>, Vol. 7, No. 1, pp. 56–60, 2025.
+      </li>
+      <li>
+        <strong><a href="https://ieeexplore.ieee.org/document/11121924" target="_blank">AMORA-Adaptive Multi-Objective Routing Algorithm in Payment Channel Networks</a></strong> 	 <br>S. Mishra and <strong><span style="color: blue;">S. Pal</span></strong>, <em>IEEE Transactions on Network and Service Management </em>, Vol. Z, No. W, pp. 1–1, 2025.
+      </li>
+      <li>
+        <strong><a href="https://www.sciencedirect.com/science/article/pii/S0378778824013252" target="_blank">Robust Peer-to-Peer Federated Learning for Non-Intrusive Load Monitoring in Smart Homes</a></strong> <br>
+        V. Agarwal, O. Ardakanian, <strong><span style="color: blue;">S. Pal,</span></strong> <em>Energy and Buildings</em>, Vol. 329, No. 115209, 2024.
+      </li>
+      <li>
+        <strong><a href="https://dl.acm.org/doi/10.1145/3680544" target="_blank">Towards a Sustainable Blockchain: A Peer-to-Peer Federated Learning based Approach</a></strong> <br> V. Agarwal, S. Mishra and <strong><span style="color: blue;">S. Pal</span></strong>, <em>ACM Transactions on Internet Technology</em>, Vol. 24, Issue 4 W, pp. 1–26, 2024.
+      </li>
+      <li>
+        <strong><a href="https://ieeexplore.ieee.org/abstract/document/10452825" target="_blank">A Robust and Privacy-Aware Federated Learning Framework for Non-Intrusive Load Monitoring</a></strong> <br> V. Agarwal, O. Ardakanian,<strong><span style="color: blue;">S. Pal</span></strong> <em>: IEEE Transactions on Sustainable Computing</em>, Vol. 9, Issue. 5, pp. 766-777, 2024.
+      </li>
+      <li>
+        <strong><a href="https://ieeexplore.ieee.org/document/10184174" target="_blank">HierChain: A Hierarchical Blockchain-Based Data Management System for Smart Healthcare</a></strong> 	 <br> V. Agrawal and <strong><span style="color: blue;">S. Pal</span></strong>, <em>IEEE Internet of Things Journal </em>, Vol. 11, Issue. 2, pp. 2924–2934, 2024.
+      </li>
+      <li>
+        <strong><a href="https://ieeexplore.ieee.org/abstract/document/10147336" target="_blank">Power Saving Approach of a Smart Watch for Monitoring the Heart Rate of a Runner</a></strong> <br> A. Vyas and <strong><span style="color: blue;">S. Pal,</span></strong> <em>IEEE Transactions on Consumer Electronics</em>, Vol. 69, Issue. 3, 2023.
+      </li>
+      <li>
+        <strong><a href="https://ieeexplore.ieee.org/document/9939088" target="_blank">QoS-Aware Multipath Routing in Software-Defined Networks</a></strong> <br> P. Kamboj, <strong><span style="color: blue;">S. Pal</span></strong>,S. Bera, and S. Misra, <em>IEEE Transactions on Network Science and Engineering</em>, Vol. 10, Issue 2, pp. 723-732, 2023.
+      </li>
+      <li>
+        <strong><a href="https://www.sciencedirect.com/science/article/pii/S0167739X22003739?via%3Dihub" target="_blank">FedDOVe: A Federated Deep Q-learning-based Offloading for Vehicular fog computing"</a></strong> <br> V. Sethi and <strong><span style="color: blue;">S. Pal,</span></strong> <em>Future Generation Computer Systems</em>, Vol. 141, pp. 96-105, 2023.
+      </li>
+      <li>
+        <strong><a href="https://dl.acm.org/doi/pdf/10.1145/3423164" target="_blank">Relay-based Communications in WBANs: A ComprehensiveSurvey</a></strong> <br> A. Vyas, <strong><span style="color: blue;">S. Pal</span></strong>,B.K. Saha, <em>ACM COMPUTING Survey</em>, Vol. 54, Article 2, pp. 2:1-2:34, 2020.
+      </li>
+      
+    </ul>
 
-        <div style="margin-top:1rem">
-          <article class="pub">
-            <div style="display:flex; justify-content:space-between; gap:1rem">
-              <div>
-                <div><strong>Reliable Atomic Broadcast in Adversarial Networks</strong></div>
-                <div class="meta">Journal of Distributed Systems — 2024</div>
-                <div class="muted" style="margin-top:.4rem">Abstract: We present a new atomic broadcast algorithm that tolerates Byzantine failures and recovers with minimal overhead.</div>
-              </div>
-              <div style="text-align:right; min-width:120px">
-                <a href="#">PDF</a> &nbsp; <a href="#">DOI</a>
-              </div>
-            </div>
-          </article>
+    <!-- Conference Publications -->
+<h3>Conference Publications</h3>
+<ul class="pub-list">
+  <li>
+    <strong><a href="https://www.computer.org/csdl/proceedings-article/mass/2024/639900a664/21kuuxlU7ks" target="_blank">IoT-Based Wearable Band for Elderly Care</a></strong> <br> A. Phutela, S.S. Patare, and S. Pal, <span class="mute"><em>Proceedings of IEEE 21st International Conference on Mobile Ad-Hoc and Smart Systems (MASS) workshop</em>, 2024.</span>
+  </li>
+  <li>
+    <strong><a href="https://ieeexplore.ieee.org/document/10945277" target="_blank">QoS-Aware Flow Routing with Minimizing Active Links and Rule Capacity Constraints in SDN Networks</a></strong> <br>
+    P. Kamboj and S. Pal, <span class="mute"><em>Proceedings of IEEE 22nd International Symposium on Network Computing and Applications (NCA)</em>, 2024.</span>
+  </li>
+  <li>
+    <strong><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10464749" target="_blank">EAR: An Energy Efficient Human Activity Recognition from Wearable Devices</a></strong> <br>
+    S. Mishra, S. Pal, <span class="mute"><em>Proceedings of IEEE GLOBECOM Workshops</em>, 2023.</span>
+  </li>
+  <li>
+    <strong><a href="https://dl.acm.org/doi/abs/10.1145/3495243.3558266" target="_blank">MobiCache: a mobility-aware caching technique in vehicular edge computing</a></strong> <br>
+    V. Sethi and S. Pal, <span class="mute"><em>MobiCom Poster</em>, 2022.</span>
+  </li>
+  <li>
+    <strong><a href="https://ieeexplore.ieee.org/abstract/document/9501052" target="_blank">Controlling Spread of COVID-19 Using VANETs</a></strong> <br>
+    V. Sethi, S. Pal, <span class="mute"><em>Proceedings of IEEE ICC</em>, 2021.</span>
+  </li>
+  <li>
+    <strong><a href="https://ieeexplore.ieee.org/abstract/document/9356036" target="_blank">Identification of Defective Nodes in Cyber-Physical System</a></strong> <br>
+    V. Agarwal, S. Pal, N. Sharma, V. Sethi, <span class="mute"><em>Proceedings of IEEE 17th International Conference on Mobile Ad Hoc and Sensor Systems (MASS)</em>, 2020.</span>
+  </li>
+  <li>
+    <strong><a href="https://ieeexplore.ieee.org/document/9356012" target="_blank">Blockchain meets IoT: A Scalable Architecture for Security and Maintenance</a></strong> <br>
+    V. Agarwal, S. Pal, <span class="mute"><em>Proceedings of IEEE 17th International Conference on Mobile Ad Hoc and Sensor Systems (MASS)</em>, 2020.</span>
+  </li>
+  <li>
+    <strong><a href="https://dl.acm.org/doi/10.1145/3274783.3275202" target="_blank">Vehicle Air Pollution Monitoring Using IoTs</a></strong> <br>
+    S. Pal, A. Ghosh, V. Sethi, <span class="mute"><em>ACM Sensys Poster</em>, 2018.</span>
+  </li>
+ 
+</ul>
 
-          <article class="pub">
-            <div style="display:flex; justify-content:space-between; gap:1rem">
-              <div>
-                <div><strong>Blockchain-based Secure Evidence Management</strong></div>
-                <div class="meta">IEEE S&P — 2023</div>
-                <div class="muted" style="margin-top:.4rem">Abstract: A system design for storing tamper-evident digital evidence with access controls and auditability.</div>
-              </div>
-              <div style="text-align:right; min-width:120px">
-                <a href="#">PDF</a> &nbsp; <a href="#">Link</a>
-              </div>
-            </div>
-          </article>
+    <!-- Books -->
+    <h3>Book</h3>
+    <ul class="pub-list">
+    <li>
+        <strong><a href="https://ekumbh.aicte-india.org/dbook.php#" target="_blank">Internet of Things</strong> <br>
+        Sujata Pal, <em>AICTE Technical Book 3rd year Diploma 5th semester course.</em>, AICTE, 2024.
+      </li>
+   
+    </ul>
 
-          <article class="pub">
-            <div class="pub">
-              <div><strong>Privacy-preserving Verification with ZK Proofs</strong></div>
-              <div class="meta">ACM Conference on Blockchain — 2022</div>
-            </div>
-          </article>
-        </div>
-      </section>
 
+    <!-- Book Chapters -->
+    <h3>Book Chapters</h3>
+    <ul class="pub-list">
+    <li>
+        <strong>Software-Defined Networking in Data Centers</strong> <br>
+        P.  Kamboj, S. Pal, In <em>Software Defined Internet of Everything. Internet of Things. </em>, Springer, 2022.
+      </li>
+      <li>
+        <strong>Preventing Security and Privacy Attacks in WBANs</strong> <br>
+        A. Vyas, S. Pal, In <em>Handbook of Computer Networks and Cyber Security: Principles and Paradigms</em>, Springer, 2019.
+      </li>
+      
+    </ul>
+  </div>
+</section>
+<!-- New sections for teaching -->
       <section id="teaching" class="card">
-        <h2>Teaching</h2>
-        <p class="muted">Courses taught recently:</p>
-        <div style="margin-top:1rem">
-          <div class="course"><div class="code">CS501</div><div><div><strong>Distributed Systems</strong></div><div class="term muted">Fall 2025</div></div></div>
-          <div class="course"><div class="code">CS405</div><div><div><strong>Blockchain Technologies</strong></div><div class="term muted">Spring 2025</div></div></div>
-          <div class="course"><div class="code">CS302</div><div><div><strong>Operating Systems</strong></div><div class="term muted">Fall 2024</div></div></div>
+        <div class="section-content">
+          <h2>Teaching</h2>
+          <p class="muted">Courses taught:</p>
+          <div style="margin-top:1rem">
+            <div class="course"><div class="code">CS540</div><div><div><strong>Blockchain Technology</strong></div><div class="term muted">2025-I</div></div></div>
+            <div class="course"><div class="code">GE103</div><div><div><strong>Blockchain Technologies</strong></div><div class="term muted">2025-I</div></div></div>
+            <div class="course"><div class="code">CS550</div><div><div><strong>Research Methodology in Computer Science</strong></div><div class="term muted">2024-II</div></div></div>
+            <div class="course"><div class="code">CS516</div><div><div><strong>Wireless Adhoc Networks</strong></div><div class="term muted">2024-I</div></div></div>
+            <div class="course"><div class="code">CS539</div><div><div><strong>Internet of Things</strong></div><div class="term muted">2023-I</div></div></div>
+          </div>
         </div>
-      </section>
+           </section>
 
       <section id="students" class="card">
-        <h2>Students & Alumni</h2>
-        <div class="grid-2" style="margin-top:1rem">
-          <div>
-            <h3>Current PhD Students</h3>
-            <ul>
-              <li>Alex Kumar — thesis: Scalable Consensus</li>
-              <li>Rina Das — thesis: ZK Protocols</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Alumni</h3>
-            <ul>
-              <li>Dr. Priya Sen — Senior Researcher, XYZ Labs</li>
-              <li>Arjun Mehta — Assistant Professor, ABC Univ.</li>
-            </ul>
+        <div class="section-content">
+          <h2>Students & Alumni</h2>
+          <div class="grid-2" style="margin-top:1rem">
+            <div>
+              <h3>Current PhD Students</h3>
+              <ul>
+                <li>Shruti Mishra  — thesis: Blockchain</li>
+                <li>Aanchal — thesis: Opportunistic Networks</li>
+                <li>Sahil Pathak  — thesis: Plant Leaf Disease Detection using AI Techniques </li>
+                <li>Arshi Zameer (Jointly with Prof. S. Roy, IIT Mandi) — thesis: Healthcare</li>
+                <li>Kavitha Midde — thesis: Blockchain</li>
+                <li>Kumari Hemlata </li>
+                <li>Sanjana Saxena </li>
+                <li>Suraj Kumar Singh</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Alumni</h3>
+              <ul>
+                
+                <li>Dr. Vidushi Agarwal — PostDoc, University of Guelph, Canada</li>
+                <li>Dr. Priyanka Kamboj — Assistant Professor, IITT Bhopal</li>
+                <li>Dr. Vivek Sethi — Assistant Professor, NIT Kurukshetra.</li>
+                <li>Dr. Avani Vyas — Assistant Professor, NIT Jalandhar</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="contact" class="card">
-        <h2>Contact</h2>
-        <p class="muted">Email is the preferred contact method for students and collaborators.</p>
-        <div class="contact-list" style="margin-top:1rem">
-          <div>Email: <a href="mailto:sujata@university.edu">sujata@university.edu</a></div>
-          <div>Office: Building X, Room 123</div>
-          <div>Phone: +91-XXXXXXXXXX</div>
+        <div class="section-content">
+          <h2>Contact</h2>
+          <p class="muted">Email is the preferred contact method for students and collaborators.</p>
+          <div class="contact-list" style="margin-top:1rem">
+            <div>Email: <a href="mailto:sujata@iitrpr.ac.in">sujata@iitrpr.ac.in</a></div>
+            <div>Office: Ramanujam Building, Room 116</div>
+            <div>Phone: 01881-232166</div>
+          </div>
         </div>
       </section>
 
@@ -231,17 +422,22 @@
   </div>
 
   <script>
-    // small helpers
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Smooth scrolling for in-page links
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const target = document.querySelector(a.getAttribute('href'));
         if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
       });
     });
+
+    // Pause vertical news on hover
+    const news = document.querySelector('.news-vertical');
+    news.addEventListener('mouseenter', () => news.style.animationPlayState='paused');
+    news.addEventListener('mouseleave', () => news.style.animationPlayState='running');
   </script>
 </body>
 </html>
+
 
